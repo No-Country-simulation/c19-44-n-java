@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex bg-gray-100">
+    <div class="w-1/5 bg-purple-700 text-white flex flex-col justify-between p-4 rounded-r-3xl">
+        <div class="profile text-center">
+            <img src="https://freeimage.host/i/dooddkF" alt="Maria Perez" class="w-24 h-24 rounded-full mx-auto">
+            <h2 class="text-2xl font-bold mt-2">Maria Perez</h2>
+            <p class="text-sm">Plan/ Premium</p>
+        </div>
+        <nav class="mt-4">
+            <a href="#" class="block py-2 hover:bg-purple-800 rounded">Mis Credenciales</a>
+            <a href="#" class="block py-2 hover:bg-purple-800 rounded">Familiar afiliado</a>
+            <a href="#" class="block py-2 hover:bg-purple-800 rounded">Mi Facturación</a>
+            <a href="#" class="block py-2 hover:bg-purple-800 rounded">Dar de baja</a>
+        </nav>
+        <div class="contact mt-4 text-sm">
+            <h3 class="text-lg mb-2">Contactanos</h3>
+            <p>Dirección: 123 Calle Principal, Ciudad, País</p>
+            <p>Correo electrónico: contacto@tusperes.com</p>
+            <p>Número de teléfono: +1234567890</p>
+        </div>
+    </div>
+    <div class="w-4/5 p-4">
+        <header class="flex py-2">
+            <h1 class="text-2xl">¡Hola! Te damos la bienvenida</h1>
+
+            <div class="ml-auto">
+                <ul class="navbar-nav me-3">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">User</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                      <li><a class="dropdown-item" href="/">Home</a></li>
+                    </ul>
+                  </li>
+                </ul>
+            </div>
+
+            <form sec:authorize="isAuthenticated()" method="post" action="/logout">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+
+        </header>
+        <section class="mb-4 p-4 bg-white rounded shadow">
+            <h2 class="text-xl mb-2">Novedades para ti</h2>
+            <div class="news-content p-4 rounded bg-purple-100 flex justify-between items-center">
+                <p class="flex-1 mr-4">Lorem ipsum dolor sit amet consectetur. Velit egestas nam feugiat risus velit a urna tellus. Quis arcu neque odio morbi pharetra.</p>
+                <button class="bg-purple-700 text-white py-2 px-4 rounded">Ver</button>
+            </div>
+        </section>
+        <section class="mb-4 p-4 bg-white rounded shadow">
+            <h2 class="text-xl mb-2">Próximo Turno</h2>
+            <div class="calendar p-4 bg-gray-100 rounded text-center">
+                <p>24/04/2024</p>
+                <button class="bg-purple-700 text-white py-2 px-4 rounded">Ver</button>
+            </div>
+        </section>
+        <section class="mb-4">
+            <h2 class="text-xl mb-2">Mis Gestiones</h2>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="gestion-item bg-purple-700 text-white p-4 rounded text-center">Turnos</div>
+                <div class="gestion-item bg-purple-700 text-white p-4 rounded text-center">Estudios</div>
+                <div class="gestion-item bg-purple-700 text-white p-4 rounded text-center">Recetas</div>
+                <div class="gestion-item bg-purple-700 text-white p-4 rounded text-center">Farmacias</div>
+                <div class="gestion-item bg-purple-700 text-white p-4 rounded text-center">Agencias</div>
+                <div class="gestion-item bg-purple-700 text-white p-4 rounded text-center">Tramites</div>
+            </div>
+        </section>
+        <section class="p-4 bg-white rounded shadow flex items-center">
+            <img src="doctor.jpg" alt="Dr. Maria P" class="w-24 h-24 rounded-full">
+            <div class="ml-4">
+                <p class="text-lg font-bold">Dr. Maria P</p>
+                <p>Pediatria</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
